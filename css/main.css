@@ -75,7 +75,7 @@
 .bg-img {
   width: 100vw;
   height: 50vh;
-  background: url("./grocery.jpg");
+  background: url("../assets/grocery.jpg");
   background-position: center;
   background-size: cover;
 

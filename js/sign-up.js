@@ -5,23 +5,26 @@ const todoInput = document.querySelector(
 );
 
 // console.log(todoInput);
-console.log(typeof localStorage.username);
+console.log(localStorage);
 // localStorage.clear();
 inputContainer.addEventListener("submit", (e) => {
+  e.preventDefault();
   const userValue = document.getElementById("user-value").value;
   const emailValue = document.getElementById("email-value").value;
   const phoneValue = document.getElementById("phone-value").value;
+
   console.log(userValue);
-  e.preventDefault();
-  if (
-    localStorage.username === userValue &&
-    localStorage.email === emailValue &&
-    localStorage.phone === phoneValue
-  ) {
-    window.location = "./grocery.html";
-  } else {
-    console.log("Login Failed, Please Sign Up");
-    alert("Login Failed, Please Sign Up");
-    console.log(`${userValue} ${emailValue} ${phoneValue}`);
-  }
+  console.log(emailValue);
+  console.log(phoneValue);
+  const userObject = {
+    username: userValue,
+    phone: phoneValue,
+    email: emailValue,
+  };
+  const user = JSON.stringify(userObject);
+  localStorage.setItem("user", user);
+  // localStorage.setItem(`phone`, `${phoneValue}`);
+  // localStorage.setItem(`email`, `${emailValue}`);
+  console.log(localStorage);
+  window.location = "./index.html";
 });
